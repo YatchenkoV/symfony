@@ -1,0 +1,34 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello {{ controller_name }}!{% endblock %}
+
+{% block body %}
+    <main class="container">
+    <section class="index-content">
+        <div class="index-content-left">
+            <h2 class="index-content-title">Новости</h2>
+            <ul class="news-preview">
+                <li>
+                    <p>НАМ НАКОНЕЦ ЗАВЕЗЛИ ЯГЕРМАЙСТЕР! ТЕПЕРЬ ВЫ МОЖЕТЕ ПРОПУСТИТЬ СТАКАНЧИК ВО ВРЕМЯ СТРИЖКИ</p>
+                    <time datetime="2018-01-11">18 января</time>
+                </li>
+                <li>
+                    <p>В НАШЕЙ КОМАНДЕ ПОПОЛНЕНИЕ, БОРИС «БРИТВА» СТРИГУНЕЦ, ОБЛАДЕТЕЛЬ МНОЖЕСТВА ТИТУЛОВ И НАГРАД ПОПОЛНИЛ НАШИ СТРОЙНЫЕ РЯДЫ</p>
+                    <time datetime="2018-01-18">18 января</time>
+                </li>
+            </ul>
+            <a href="" class="btn">Все новости</a>
+        </div>
+        <div class="index-content-right">
+            <h2 class="index-content-title">фотогалерея</h2>
+            <div class="gallery">
+                <div class="gallery-content">
+                    <img src="../img/gallery.jpg" alt="gallery">
+                </div>
+                <button class="btn gallery-prev" disabled="disabled">назад</button>
+                <button class="btn gallery-next">вперед</button>
+            </div>
+        </div>
+    </section>
+    </main>
+{% endblock %}

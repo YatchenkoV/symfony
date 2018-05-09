@@ -1,0 +1,26 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello {{ controller_name }}!{% endblock %}
+
+{% block body %}
+    <div id="modal-login" class="modal-login-form modal-login-show">
+        <!-- MODAL CONTENT -->
+        <h2>Личный кабинет</h2>
+        <p>введите пожалуйста свой логин и пароль</p>
+        <form action="/action-page.php" class="modal-content" method="post">
+            <div class="modal-container">
+                <label for="user-name">Логин</label>
+                <input type="text" name="user-name" id="user-name" placeholder="логин">
+                <label for="user-password">Пароль</label>
+                <input type="password" name="user-password" id="user-password" placeholder="пароль">
+                <div>
+                    <label class="checkbox-container">
+                        <input type="checkbox" name="remember-me" checked="checked"><span class="checkmark"></span>запомните меня
+                    </label>
+                    <span class="restore"><a href="#">Я забыл пароль!</a></span>
+                </div>
+                <button type="submit" class="btn">Войти</button>
+            </div>
+        </form>
+    </div>
+{% endblock %}
