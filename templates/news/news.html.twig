@@ -8,10 +8,13 @@
         <div class="index-content-left">
             <h2 class="index-content-title">Новости</h2>
             <ul class="news-preview">
-                {% for key, route in arr %}
-                    <p><a href="./{{ key }}">{{ route.title|e }}</a></p>
 
-                {% endfor %}
+                <li>
+
+                    <p>{{ currentRoute.title }} </p>
+                    <p>{{ currentRoute.content }}</p>
+
+                </li>
 
             </ul>
             <a href="" class="btn">Все новости</a>
