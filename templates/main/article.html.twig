@@ -1,0 +1,17 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}News{% endblock %}
+
+{% block body %}
+    <main class="container">
+    <section class="index-content">
+
+        <h2 class="index-content-title">{{ post.title }}</h2>
+
+        <p>{{ post.content |raw }}</p>
+
+
+
+    </section>
+    </main>
+{% endblock %}

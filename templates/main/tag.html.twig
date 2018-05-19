@@ -1,0 +1,27 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}News{% endblock %}
+
+{% block body %}
+    <main class="container">
+    <section class="index-content">
+
+            <h2 class="index-content-title">TAG</h2>
+
+
+        <h2>
+            {{ tag.title }}
+        </h2>
+        <ul>
+        {% for post in posts %}
+
+            <li>
+                <a href="{{ path('article', {'articleId' : post.id}) }}">{{ post.title }}</a>
+            </li>
+        {% endfor %}
+        </ul>
+
+
+    </section>
+    </main>
+{% endblock %}

@@ -36,9 +36,7 @@ class NewsController extends Controller
         foreach ($this->arr as $key => $value)
 
         {
-            dump($key);
-            dump($value);
-            dump($page);
+
             if ($key == $page)
             {
 
@@ -52,4 +50,6 @@ class NewsController extends Controller
         ]);
 
     }
+
+
 }
