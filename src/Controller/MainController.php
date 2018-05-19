@@ -54,22 +54,25 @@ class MainController extends Controller
     {
 
         $tags = $this->getDoctrine()->getRepository(Tag::class)->findAll();
-        dump($tags);
+
         return $this->render('main/tags.html.twig', ['tags' => $tags, ]);
 
     }
 
+
     /**
-     * @Route("/tags/{tagId}", name="tagId")
+     * @Route("/tag/{tagId}", name="tag")
      */
-    public function articleTags($tagId)
+    public function tagArticle($tagId)
     {
 
         $tag = $this->getDoctrine()->getRepository(Tag::class)->find($tagId);
-        $posts = $this->getDoctrine()->getRepository(Post::class)->findAll();
 
-        return $this->render('main/tag.html.twig', [ 'tag' => $tag, 'posts' => $posts ]);
+
+        return $this->render('main/tag.html.twig', [ 'tag' => $tag,  ]);
     }
+
+
 
 
 
