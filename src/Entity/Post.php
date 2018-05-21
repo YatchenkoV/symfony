@@ -45,6 +45,7 @@ class Post
 
     public function __construct()
     {
+        $this->created_at = new \DateTime();
         $this->tags = new ArrayCollection();
     }
 
@@ -81,8 +82,18 @@ class Post
     {
         return $this->created_at;
     }
+    public function getCreated_at(): ?\DateTimeInterface
+    {
+        return $this->created_at;
+    }
 
     public function setCreatedAt(\DateTimeInterface $created_at): self
+    {
+        $this->created_at = $created_at;
+
+        return $this;
+    }
+    public function setCreated_at(\DateTimeInterface $created_at): self
     {
         $this->created_at = $created_at;
 

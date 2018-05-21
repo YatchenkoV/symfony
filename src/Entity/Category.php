@@ -39,6 +39,12 @@ class Category
         $this->children = new ArrayCollection();
     }
 
+    
+    public function __toString()
+    {
+        return $this->title ? $this->title : 'NEW';
+    }
+
     public function getId()
     {
         return $this->id;

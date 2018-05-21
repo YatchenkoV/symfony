@@ -5,8 +5,12 @@ namespace App\Controller;
 use App\Entity\Category;
 use App\Entity\Post;
 use App\Entity\Tag;
+use App\Repository\CategoryRepository;
+use App\Repository\TagRepository;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\ParamConverter;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Entity;
 
 
 
@@ -26,34 +30,29 @@ class MainController extends Controller
     /**
      * @Route("/blog/", name="blog")
      */
-    public function blog()
+    public function blog(CategoryRepository $categoryRepository)
     {
-
-
-        $categories = $this->getDoctrine()->getRepository(Category::class)->findAll();
-
+        $categories = $categoryRepository->findAll();
         return $this->render('main/blog.html.twig', compact('categories'));
     }
 
 
     /**
-     * @Route("/article/{articleId}", name="article")
+     * @Route("/article/{slug}", name="article")
+     * @ParamConverter("slug", class="App\Entity\Post")
      */
-    public function article($articleId)
+    public function article($slug)
     {
-
-        $post = $this->getDoctrine()->getRepository(Post::class)->find($articleId);
-
-        return $this->render('main/article.html.twig', [ 'post' => $post, ]);
+        return $this->render('main/article.html.twig', [ 'post' => $slug, ]);
     }
 
     /**
      * @Route("/tags/", name="tags")
      */
-    public function listTags()
+    public function listTags(TagRepository $tagRepository)
     {
 
-        $tags = $this->getDoctrine()->getRepository(Tag::class)->findAll();
+        $tags = $tagRepository->findAll();
 
         return $this->render('main/tags.html.twig', ['tags' => $tags, ]);
 
@@ -61,14 +60,11 @@ class MainController extends Controller
 
 
     /**
-     * @Route("/tag/{tagId}", name="tag")
+     * @Route("/tags/{tagId}", name="tag")
+     * @Entity("tag", expr="repository.find(tagId)")
      */
-    public function tagArticle($tagId)
+    public function tagArticle(Tag $tag)
     {
-
-        $tag = $this->getDoctrine()->getRepository(Tag::class)->find($tagId);
-
-
         return $this->render('main/tag.html.twig', [ 'tag' => $tag,  ]);
     }
 
