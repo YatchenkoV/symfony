@@ -38,12 +38,12 @@ class MainController extends Controller
 
 
     /**
-     * @Route("/article/{slug}", name="article")
-     * @ParamConverter("slug", class="App\Entity\Post")
+     * @Route("/article/{postSlug}", name="article")
+     * @ParamConverter("post", options={"mapping":{"postSlug":"slug"}})
      */
-    public function article($slug)
+    public function article(Post $post)
     {
-        return $this->render('main/article.html.twig', [ 'post' => $slug, ]);
+        return $this->render('main/article.html.twig', [ 'post' => $post, ]);
     }
 
     /**

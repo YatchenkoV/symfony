@@ -13,7 +13,7 @@
                 <ul class="news-preview">
                     {% for post in category.posts %}
                         <li>
-                            <a href="{{ path('article', {'slug' : post.id}) }}">{{ post.title }}</a>
+                            <a href="{{ path('article', {'postSlug' : post.slug}) }}">{{ post.title }}</a>
                         </li>
                     {% endfor %}
 
